@@ -1,0 +1,2287 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بريق المدينة | خدمات تنظيف شاملة وعزل احترافي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0c4a6e;
+            --primary-light: #0369a1;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0284c7 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.98);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(12,74,110,0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            color: var(--gray);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--gradient-accent);
+            color: var(--dark) !important;
+            padding: 10px 24px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 15px !important;
+            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(245,158,11,0.5) !important;
+            background: var(--gradient-accent) !important;
+            color: var(--dark) !important;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(12,74,110,0.95), rgba(3,105,161,0.9)), url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 30px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 52px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 span {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(245,158,11,0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(245,158,11,0.5);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-phone-box {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(245,158,11,0.2); }
+            50% { box-shadow: 0 0 60px rgba(245,158,11,0.4); }
+        }
+
+        .hero-phone-box .phone-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .hero-phone-box .phone-number {
+            color: var(--accent);
+            font-size: 36px;
+            font-weight: 900;
+            direction: ltr;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .hero-phone-box .phone-note {
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item .number {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+        }
+
+        .stat-item .label {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 4px;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            padding: 100px 30px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(12,74,110,0.08);
+            color: var(--primary);
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(12,74,110,0.08), rgba(12,74,110,0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--primary);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: right;
+            margin-bottom: 24px;
+        }
+
+        .service-features li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-features li i {
+            color: #10b981;
+            font-size: 12px;
+        }
+
+        .service-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .service-btn:hover {
+            gap: 14px;
+            color: var(--accent-dark);
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            padding: 100px 30px;
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(12,74,110,0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* ===== ARTICLES ===== */
+        .articles {
+            padding: 100px 30px;
+            background: var(--white);
+        }
+
+        .articles-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(245,158,11,0.1);
+            color: var(--accent-dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .article-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: var(--gray);
+            margin-bottom: 16px;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 14px;
+        }
+
+        /* ===== INFO SECTIONS ===== */
+        .info-section {
+            padding: 80px 30px;
+            background: var(--white);
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .info-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .info-content > p {
+            font-size: 16px;
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .info-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--dark);
+        }
+
+        .info-list li i {
+            color: #10b981;
+            margin-top: 4px;
+            font-size: 16px;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            padding: 100px 30px;
+            background: linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .why-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            background: white;
+            border-radius: 20px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .why-card .icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 18px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+        }
+
+        .why-card h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* ===== PROCESS ===== */
+        .process {
+            padding: 100px 30px;
+            background: var(--white);
+        }
+
+        .process-steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 15%;
+            right: 15%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 18px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 900;
+            color: white;
+            box-shadow: 0 8px 25px rgba(12,74,110,0.3);
+            border: 4px solid white;
+        }
+
+        .step h4 {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* ===== CTA ===== */
+        .cta {
+            padding: 80px 30px;
+            background: var(--gradient-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(245,158,11,0.1);
+            border-radius: 50%;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-phone {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--accent);
+            direction: ltr;
+            display: block;
+            margin-bottom: 30px;
+            text-decoration: none;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-phone:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 30px rgba(245,158,11,0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.4);
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(37,211,102,0.5);
+        }
+
+        .btn-call {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255,255,255,0.3);
+        }
+
+        .btn-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255,255,255,0.4);
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 100px 30px;
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .author-info h5 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .author-info span {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 100px 30px;
+            background: white;
+        }
+
+        .contact-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 40px;
+            background: var(--gradient-primary);
+            border-radius: 24px;
+            color: white;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .contact-info > p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item .icon-box {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item h5 {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+
+        .contact-item p, .contact-item a {
+            font-size: 17px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .contact-form {
+            padding: 40px;
+            background: var(--light);
+            border-radius: 24px;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 15px;
+            color: var(--dark);
+            background: white;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(12,74,110,0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(12,74,110,0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 30px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+            padding-right: 8px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 999;
+            width: 64px;
+            height: 64px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            box-shadow: 0 6px 30px rgba(37,211,102,0.5);
+            animation: bounce 2s infinite;
+            transition: all 0.3s ease;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .floating-phone {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            text-decoration: none;
+            box-shadow: 0 6px 30px rgba(12,74,110,0.4);
+            animation: bounce 2s infinite;
+            animation-delay: 1s;
+            transition: all 0.3s ease;
+        }
+
+        .floating-phone:hover {
+            transform: scale(1.1);
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-top {
+            position: fixed;
+            bottom: 110px;
+            right: 35px;
+            z-index: 998;
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .services-grid,
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container,
+            .info-container,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin: 0 auto 35px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                max-width: 500px;
+                margin: 40px auto 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 4px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-content h2 {
+                font-size: 34px;
+            }
+
+            .hero-phone-box .phone-number {
+                font-size: 26px;
+            }
+
+            .services-grid,
+            .articles-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .cta h2 {
+                font-size: 28px;
+            }
+
+            .cta-phone {
+                font-size: 32px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+            }
+
+            .info-content h3 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h2 {
+                font-size: 28px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-broom"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>بريق المدينة</h1>
+                    <span>خدمات تنظيف وعزل شاملة</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#gallery">أعمالنا</a></li>
+                <li><a href="#articles">مقالات ونصائح</a></li>
+                <li><a href="#why-us">لماذا نحن</a></li>
+                <li><a href="#testimonials">آراء العملاء</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <li><a href="tel:+966566946641" class="nav-phone">
+                    <i class="fas fa-phone-alt"></i>
+                    +966 56 694 6641
+                </a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>
+                    خدمات تنظيف شاملة
+                    <br>
+                    <span>للمنازل والمطاعم</span>
+                    <br>
+                    في المدينة المنورة
+                </h2>
+                <p>
+                    نقدم أفضل خدمات التنظيف الشاملة للفلل والشقق، تنظيف السجاد والكنب، عزل الأسطح والخزانات، وتنظيف مداخن المطاعم بأعلى معايير الجودة والسلامة.
+                </p>
+                <div class="hero-buttons">
+                    <a href="tel:+966566946641" class="btn-primary">
+                        <i class="fas fa-phone-alt"></i>
+                        اتصل الآن
+                    </a>
+                    <a href="https://wa.me/966566946641" class="btn-secondary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        واتساب
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="number">+1200</span>
+                        <span class="label">عميل سعيد</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">+10</span>
+                        <span class="label">سنوات خبرة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">24/7</span>
+                        <span class="label">خدمة متواصلة</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-phone-box">
+                <div class="phone-label">📞 اتصل بنا الآن - استقبال 24 ساعة</div>
+                <div class="phone-number">+966 56 694 6641</div>
+                <div class="phone-note">متاحون على مدار الساعة لخدمتكم</div>
+                <br>
+                <a href="tel:+966566946641" class="btn-primary" style="width:100%; justify-content:center;">
+                    <i class="fas fa-phone-alt"></i>
+                    اتصل الآن مجاناً
+                </a>
+                <br><br>
+                <a href="https://wa.me/966566946641" class="btn-whatsapp" style="width:100%; justify-content:center;" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    راسلنا واتساب
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="section-badge">🔧 خدماتنا المتميزة</span>
+            <h2>حلول تنظيف وعزل متكاملة</h2>
+            <p>نوفر لك مجموعة شاملة من خدمات التنظيف والعزل بأعلى معايير الجودة</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV2NBzVJdov7Ym6wk_-dZNnvL8bfhiwIINO-yoRx1eow&s=10" alt="تنظيف فلل" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>تنظيف الفلل والقصور</h3>
+                    <p>تنظيف شامل للفلل والقصور بأحدث المعدات والمواد الآمنة، بما في ذلك تنظيف الأرضيات، الجدران، النوافذ، والحمامات.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف شامل لجميع الغرف</li>
+                        <li><i class="fas fa-check-circle"></i> تنظيف الأرضيات والرخام</li>
+                        <li><i class="fas fa-check-circle"></i> تنظيف النوافذ والواجهات</li>
+                        <li><i class="fas fa-check-circle"></i> تعقيم وتطهير كامل</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <img src="https://alanaruhclean.com/wp-content/uploads/2024/11/%D8%B4%D8%B1%D9%83%D8%A9-%D8%AA%D9%86%D8%B8%D9%8A%D9%81-%D9%81%D9%84%D9%84-%D8%BA%D8%B1%D8%A8-%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6.jpg" alt="تنظيف شقق" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>تنظيف الشقق والمنازل</h3>
+                    <p>خدمة تنظيف احترافية للشقق والمنازل قبل وبعد السكن، مع ضمان النظافة التامة والاهتمام بأدق التفاصيل.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف قبل وبعد السكن</li>
+                        <li><i class="fas fa-check-circle"></i> تنظيف المطابخ والحمامات</li>
+                        <li><i class="fas fa-check-circle"></i> ترتيب وتنظيم الغرف</li>
+                        <li><i class="fas fa-check-circle"></i> أسعار تنافسية</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600" alt="تنظيف سجاد" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-rug"></i>
+                    </div>
+                    <h3>تنظيف السجاد والموكيت</h3>
+                    <p>تنظيف عميق للسجاد والموكيت باستخدام أحدث أجهزة الغسيل بالبخار لإزالة البقع والروائح الكريهة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> غسيل بالبخار الساخن</li>
+                        <li><i class="fas fa-check-circle"></i> إزالة البقع الصعبة</li>
+                        <li><i class="fas fa-check-circle"></i> تعقيم وقتل البكتيريا</li>
+                        <li><i class="fas fa-check-circle"></i> تجفيف سريع</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600" alt="تنظيف كنب" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>تنظيف الكنب والمجالس</h3>
+                    <p>تنظيف شامل للكنب والمجالس بجميع أنواعها (قماش، جلد، مخمل) مع إزالة البقع والحفاظ على جودة القماش.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف عميق للأقمشة</li>
+                        <li><i class="fas fa-check-circle"></i> إزالة البقع والدهون</li>
+                        <li><i class="fas fa-check-circle"></i> مواد آمنة على الأقمشة</li>
+                        <li><i class="fas fa-check-circle"></i> تجديد مظهر الكنب</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <img src="https://syanh-ksa.com/wp-content/uploads/2024/06/%D8%B9%D8%B2%D9%84-%D8%AE%D8%B2%D8%A7%D9%86%D8%A7%D8%AA-%D9%88%D8%B9%D8%B2%D9%84-%D8%A7%D8%B3%D8%B7%D8%AD-%D8%A8%D8%A7%D9%84%D8%B1%D9%8A%D8%A7%D8%B6.jpg" alt="عزل اسطح" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>عزل الأسطح</h3>
+                    <p>عزل حراري ومائي لجميع أنواع الأسطح بأفضل المواد المعتمدة لضمان حماية منزلك من التسربات والحرارة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> عزل حراري ومائي متكامل</li>
+                        <li><i class="fas fa-check-circle"></i> مواد معتمدة وعالية الجودة</li>
+                        <li><i class="fas fa-check-circle"></i> ضمان شامل على العمل</li>
+                        <li><i class="fas fa-check-circle"></i> فحص دوري مجاني</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRm2i-RFoz3IhIFb_M5qh-nXAG7-sqmmVFH8o5YkuKEsBenR3TleK6lVVM&s=10" alt="تنظيف خزانات" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>تنظيف وتعقيم الخزانات</h3>
+                    <p>تنظيف وتعقيم شامل لخزانات المياه العلوية والأرضية بمواد آمنة ومعتمدة لضمان مياه نظيفة وصحية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف بالضغط العالي</li>
+                        <li><i class="fas fa-check-circle"></i> تعقيم بمواد آمنة</li>
+                        <li><i class="fas fa-check-circle"></i> إزالة الرواسب والطحالب</li>
+                        <li><i class="fas fa-check-circle"></i> خدمة سريعة ومضمونة</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="service-card">
+                <img src="https://d2pi0n2fm836iz.cloudfront.net/309427/0906202517234268bc6e1e88ada.jpg" alt="تنظيف مداخن" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>تنظيف مداخن المطاعم</h3>
+                    <p>تنظيف شامل لمداخن وشفاطات المطابخ التجارية وفق معايير الدفاع المدني والسلامة للوقاية من الحرائق.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف الدهون والزيوت</li>
+                        <li><i class="fas fa-check-circle"></i> مطابقة لمعايير الدفاع المدني</li>
+                        <li><i class="fas fa-check-circle"></i> شهادة تنظيف معتمدة</li>
+                        <li><i class="fas fa-check-circle"></i> عقود صيانة دورية</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy37W70L1FAEd2_3kOpa7xWpV6opChskwXJj6Phgizlw&s=10" alt="تنظيف مساجد" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-mosque"></i>
+                    </div>
+                    <h3>تنظيف المساجد</h3>
+                    <p>تنظيف وتعقيم شامل للمساجد بما في ذلك السجاد، الجدران، النوافذ، ودورات المياه بأعلى معايير النظافة.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف السجاد والموكيت</li>
+                        <li><i class="fas fa-check-circle"></i> تعقيم شامل</li>
+                        <li><i class="fas fa-check-circle"></i> تنظيف دورات المياه</li>
+                        <li><i class="fas fa-check-circle"></i> فريق مدرب ومحترم</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 9 -->
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsZf39Tp2hej_FNnPHSBLgpZOsEwX_-Gzf-rM8mWlgQhuXqlJtYZQ9XcA&s=10" alt="تنظيف مكاتب" class="service-image">
+                <div class="service-content">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>تنظيف المكاتب والشركات</h3>
+                    <p>خدمات تنظيف يومية وأسبوعية للمكاتب والشركات والمؤسسات للحفاظ على بيئة عمل نظيفة وصحية.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check-circle"></i> تنظيف يومي/أسبوعي</li>
+                        <li><i class="fas fa-check-circle"></i> تعقيم المكاتب والمكاتب</li>
+                        <li><i class="fas fa-check-circle"></i> تنظيف النوافذ والواجهات</li>
+                        <li><i class="fas fa-check-circle"></i> عقود طويلة الأجل</li>
+                    </ul>
+                    <a href="tel:+966566946641" class="service-btn">
+                        اطلب الخدمة
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <span class="section-badge">📸 معرض الأعمال</span>
+            <h2>نماذج من أعمالنا</h2>
+            <p>شاهد بعضاً من مشاريعنا التي نفذناها لعملائنا الكرام</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV2NBzVJdov7Ym6wk_-dZNnvL8bfhiwIINO-yoRx1eow&s=10" alt="تنظيف فلل">
+                <div class="gallery-overlay">
+                    <h4>تنظيف فلل</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600" alt="تنظيف سجاد">
+                <div class="gallery-overlay">
+                    <h4>تنظيف سجاد</h4>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600" alt="تنظيف كنب">
+                <div class="gallery-overlay">
+                    <h4>تنظيف كنب</h4>
+                </div>
+            </div>
+           
+                </div>
+            </div>
+            
+
+         
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO SECTION 1 -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-image">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800" alt="تنظيف احترافي">
+            </div>
+            <div class="info-content">
+                <h3>لماذا التنظيف الاحترافي مهم لمنزلك؟</h3>
+                <p>التنظيف المنتظم والاحترافي لمنزلك ليس مجرد رفاهية، بل هو استثمار في صحة عائلتك وراحتك. التنظيف العميق يزيل الغبار المتراكم، البكتيريا، والعفن الذي لا يمكن إزالته بالتنظيف العادي.</p>
+                <ul class="info-list">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>حماية الصحة:</strong> تقليل مسببات الحساسية والأمراض التنفسية
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>إطالة عمر الأثاث:</strong> الحفاظ على جودة الأثاث والسجاد لفترة أطول
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>توفير الوقت:</strong> فريق محترف ينجز العمل بسرعة وكفاءة
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>الراحة النفسية:</strong> العيش في بيئة نظيفة ومنظمة
+                        </div>
+                    </li>
+                </ul>
+                <a href="tel:+966566946641" class="btn-primary">
+                    <i class="fas fa-phone-alt"></i>
+                    احجز موعدك الآن
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us" id="why-us">
+        <div class="section-header">
+            <span class="section-badge">⭐ لماذا تختارنا</span>
+            <h2>ما يميزنا عن الآخرين</h2>
+            <p>نحرص على تقديم أفضل خدمة بأعلى جودة وأنسب الأسعار</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <h4>فريق محترف</h4>
+                <p>فريق عمل مدرب ومتخصص ذو خبرة عالية في جميع خدمات التنظيف والعزل</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-clock"></i></div>
+                <h4>استجابة سريعة</h4>
+                <p>نصل إليك في أسرع وقت ممكن وننجز العمل بكفاءة عالية وفي الوقت المحدد</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-medal"></i></div>
+                <h4>جودة مضمونة</h4>
+                <p>نستخدم أحدث المعدات وأفضل المواد المعتمدة مع ضمان شامل على جميع أعمالنا</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-tags"></i></div>
+                <h4>أسعار تنافسية</h4>
+                <p>نقدم أفضل الأسعار مع الحفاظ على أعلى مستوى من الجودة والاحترافية</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                <h4>مواد آمنة</h4>
+                <p>نستخدم مواد تنظيف آمنة على الأطفال والحيوانات الأليفة وصديقة للبيئة</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-certificate"></i></div>
+                <h4>ضمان شامل</h4>
+                <p>نقدم ضماناً شاملاً على جميع خدماتنا مع متابعة دورية مجانية</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-headset"></i></div>
+                <h4>دعم 24/7</h4>
+                <p>فريق خدمة العملاء متاح على مدار الساعة للإجابة على استفساراتك</p>
+            </div>
+            <div class="why-card">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h4>تغطية شاملة</h4>
+                <p>نخدم جميع أحياء المدينة المنورة والمناطق المجاورة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+        <div class="section-header">
+            <span class="section-badge">📋 كيف نعمل</span>
+            <h2>خطوات بسيطة لخدمتك</h2>
+            <p>نسهل عليك العملية من البداية للنهاية</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>اتصل بنا</h4>
+                <p>تواصل معنا عبر الهاتف أو الواتساب</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>معاينة مجانية</h4>
+                <p>نرسل فريق للمعاينة وتحديد التكلفة</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>تنفيذ العمل</h4>
+                <p>نبدأ التنفيذ بأعلى معايير الجودة</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h4>ضمان ومتابعة</h4>
+                <p>ضمان شامل ومتابعة دورية مجانية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>🎯 جاهزون لخدمتك في أي وقت!</h2>
+        <p>لا تتردد في التواصل معنا - معاينة مجانية وعرض سعر فوري</p>
+        <a href="tel:+966566946641" class="cta-phone">+966 56 694 6641</a>
+        <div class="cta-buttons">
+            <a href="tel:+966566946641" class="btn-call">
+                <i class="fas fa-phone-alt"></i>
+                اتصل الآن
+            </a>
+            <a href="https://wa.me/966566946641" class="btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                راسلنا واتساب
+            </a>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header">
+            <span class="section-badge">💬 آراء العملاء</span>
+            <h2>ماذا يقول عملاؤنا</h2>
+            <p>نفتخر بثقة عملائنا ورضاهم عن خدماتنا</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"خدمة ممتازة وعمل احترافي. قاموا بتنظيف الفيلا بالكامل بشكل رائع. الفريق منظم ومحترم وأنصح الجميع بالتعامل معهم."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">أ</div>
+                    <div class="author-info">
+                        <h5>أحمد العتيبي</h5>
+                        <span>تنظيف فيلا - حي العزيزية</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"نظفوا مدخنة المطعم بشكل كامل وأعطونا شهادة مطابقة للدفاع المدني. فريق محترف والتزام بالمواعيد. سعر ممتاز."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">م</div>
+                    <div class="author-info">
+                        <h5>محمد السالم</h5>
+                        <span>تنظيف مداخن - مطعم</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"غسلوا السجاد والكنب بشكل رائع. رجعوا كأنهم جدد! المواد المستخدمة آمنة والرائحة جميلة. شكراً بريق المدينة!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ف</div>
+                    <div class="author-info">
+                        <h5>فاطمة الحربي</h5>
+                        <span>تنظيف سجاد وكنب - حي الدفاع</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"عزلوا سطح المنزل بشكل احترافي. المواد المستخدمة عالية الجودة والسعر مناسب. الضمان شامل والمتابعة ممتازة."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">خ</div>
+                    <div class="author-info">
+                        <h5>خالد المطيري</h5>
+                        <span>عزل أسطح - حي العوالي</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"نظفوا الشقة قبل السكن وكانت نظيفة جداً. التفاصيل الصغيرة تم الاهتمام بها. فريق سريع ومحترف. أنصح بهم بشدة."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">ن</div>
+                    <div class="author-info">
+                        <h5>نورة القحطاني</h5>
+                        <span>تنظيف شقة - حي الملك فهد</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"خدمة تنظيف الخزانات كانت ممتازة. المياه صارت أنظف بكثير والأسعار معقولة. فريق ملتزم بالمواعيد."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">س</div>
+                    <div class="author-info">
+                        <h5>سعد الغامدي</h5>
+                        <span>تنظيف خزانات - حي قربان</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-badge">📍 تواصل معنا</span>
+            <h2>نسعد بخدمتك</h2>
+            <p>تواصل معنا الآن واحصل على معاينة وعرض سعر مجاني</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>معلومات التواصل</h3>
+                <p>نحن متاحون على مدار الساعة لخدمتك في جميع أحياء المدينة المنورة. لا تتردد في التواصل معنا!</p>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <h5>اتصل بنا</h5>
+                        <a href="tel:+966566946641">+966 56 694 6641</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <h5>واتساب</h5>
+                        <a href="https://wa.me/966566946641" target="_blank">+966 56 694 6641</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                    <div>
+                        <h5>الموقع</h5>
+                        <p style="direction: rtl;">المدينة المنورة - المملكة العربية السعودية</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="icon-box"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h5>ساعات العمل</h5>
+                        <p style="direction: rtl;">متاحون 24 ساعة - 7 أيام في الأسبوع</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>أرسل طلبك</h3>
+                <form onsubmit="sendWhatsApp(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الاسم الكامل</label>
+                            <input type="text" id="name" placeholder="أدخل اسمك" required>
+                        </div>
+                        <div class="form-group">
+                            <label>رقم الجوال</label>
+                            <input type="tel" id="phone" placeholder="05XXXXXXXX" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>الخدمة المطلوبة</label>
+                        <select id="service" required>
+                            <option value="">اختر الخدمة</option>
+                            <option value="تنظيف فلل">تنظيف فلل وقصور</option>
+                            <option value="تنظيف شقق">تنظيف شقق ومنازل</option>
+                            <option value="تنظيف سجاد">تنظيف سجاد وموكيت</option>
+                            <option value="تنظيف كنب">تنظيف كنب ومجالس</option>
+                            <option value="عزل أسطح">عزل أسطح</option>
+                            <option value="تنظيف خزانات">تنظيف وتعقيم خزانات</option>
+                            <option value="تنظيف مداخن">تنظيف مداخن مطاعم</option>
+                            <option value="أخرى">خدمة أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>الحي / الموقع</label>
+                        <input type="text" id="location" placeholder="مثال: حي العزيزية">
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل إضافية</label>
+                        <textarea id="details" placeholder="اكتب أي تفاصيل إضافية هنا..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        إرسال عبر واتساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>✨ بريق المدينة</h3>
+                <p>شركة متخصصة في خدمات التنظيف والعزل الشاملة في المدينة المنورة. نسعى دائماً لتقديم أفضل الخدمات بأعلى معايير الجودة والاحترافية لضمان رضا عملائنا.</p>
+            </div>
+            <div class="footer-col">
+                <h4>خدماتنا</h4>
+                <ul>
+                    <li><a href="#services">تنظيف الفلل</a></li>
+                    <li><a href="#services">تنظيف الشقق</a></li>
+                    <li><a href="#services">تنظيف السجاد</a></li>
+                    <li><a href="#services">تنظيف الكنب</a></li>
+                    <li><a href="#services">عزل الأسطح</a></li>
+                    <li><a href="#services">تنظيف الخزانات</a></li>
+                    <li><a href="#services">تنظيف مداخن المطاعم</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
+                    <li><a href="#gallery">أعمالنا</a></li>
+                    <li><a href="#articles">مقالات</a></li>
+                    <li><a href="#why-us">لماذا نحن</a></li>
+                    <li><a href="#contact">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>تواصل معنا</h4>
+                <ul>
+                    <li><a href="tel:+966566946641">📞 +966 56 694 6641</a></li>
+                    <li><a href="https://wa.me/966566946641" target="_blank">💬 واتساب</a></li>
+                    <li><a href="#">📍 المدينة المنورة</a></li>
+                    <li><a href="#">🕐 متاحون 24/7</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 بريق المدينة - جميع الحقوق محفوظة</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-snapchat-ghost"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING BUTTONS -->
+    <a href="https://wa.me/966566946641" class="floating-whatsapp" target="_blank" title="تواصل واتساب">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+966566946641" class="floating-phone" title="اتصل الآن">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth Scroll for Nav Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Send WhatsApp Form
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const location = document.getElementById('location').value;
+            const details = document.getElementById('details').value;
+
+            let message = `مرحباً، أرغب في الاستفسار عن خدماتكم:%0A`;
+            message += `👤 الاسم: ${name}%0A`;
+            message += `📱 الجوال: ${phone}%0A`;
+            message += `🔧 الخدمة: ${service}%0A`;
+            if (location) message += `📍 الموقع: ${location}%0A`;
+            if (details) message += `📝 تفاصيل: ${details}%0A`;
+
+            window.open(`https://wa.me/966566946641?text=${message}`, '_blank');
+        }
+
+        // Animate on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .why-card, .testimonial-card, .step, .article-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-item .number');
+            counters.forEach(counter => {
+                const target = counter.innerText;
+                if (target.includes('+')) {
+                    const num = parseInt(target.replace('+', ''));
+                    let current = 0;
+                    const increment = num / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            counter.innerText = '+' + num;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = '+' + Math.floor(current);
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Run counter animation when hero is visible
+        const heroObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                heroObserver.disconnect();
+            }
+        });
+
+        heroObserver.observe(document.querySelector('.hero-stats'));
+    </script>
+
+</body>
+</html>
